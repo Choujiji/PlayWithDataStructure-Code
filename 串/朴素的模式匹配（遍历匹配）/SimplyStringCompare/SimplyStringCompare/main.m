@@ -40,16 +40,11 @@ NSInteger findSubStringIndex(NSString *sourceString, NSString *targetString) {
 NSInteger findSubStrIndex(char *sourceStr, char *targetStr) {
     // 1. 获取两字符串长度
     
-    /** 源串长度 （运算次数：m次）*/
-    NSInteger sourceLength = 0;
-    while (sourceStr[sourceLength]) {
-        sourceLength += 1;
-    }
-    /** 目标串长度 （运算次数：n次）*/
-    NSInteger targetLength = 0;
-    while (targetStr[targetLength]) {
-        targetLength += 1;
-    }
+    /** 源串长度 （运算次数：1次）*/
+    NSInteger sourceLength = strlen(sourceStr);
+
+    /** 目标串长度 （运算次数：1次）*/
+    NSInteger targetLength = strlen(targetStr);
     
     // 2. 依次比较字符（总运算次数： a + b）
     
@@ -80,7 +75,7 @@ NSInteger findSubStrIndex(char *sourceStr, char *targetStr) {
         return sourceIndex - targetLength;
     }
     
-    // 最终总运算次数为 (m + n) + (a + b) + 1
+    // 最终总运算次数为 (a + b) + 3
     return NSNotFound;
 }
 
